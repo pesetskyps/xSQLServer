@@ -5,7 +5,7 @@ Import-Module -Name (Join-Path -Path (Split-Path (Split-Path $PSScriptRoot -Pare
 Import-Module -Name (Join-Path -Path (Split-Path -Path $PSScriptRoot -Parent) `
                                -ChildPath 'CommonResourceHelper.psm1')
 
-$script:localizedData = Get-LocalizedData -ResourceName 'MSFT_xSQLServerAlwaysOnAvailabilityGroupDatabaseMembership'
+$script:localizedData = Get-LocalizedData -ResourceName 'xSQLServerAlwaysOnAvailabilityGroupDatabaseMembership'
 
 enum Ensure
 {
@@ -48,12 +48,6 @@ class xSQLServerAlwaysOnAvailabilityGroupDatabaseMembership
     [Bool]
     $MatchDatabaseOwner = $true
 
-    # Load the SQLPS module when the class is initialized
-    xSQLServerAlwaysOnAvailabilityGroupDatabaseMembership()
-    {
-        Import-SQLPSModule
-    }
-
     [xSQLServerAlwaysOnAvailabilityGroupDatabaseMembership] Get()
     {
         # Create an object that reflects the current configuration
@@ -86,6 +80,8 @@ class xSQLServerAlwaysOnAvailabilityGroupDatabaseMembership
 
     [Void] Set()
     {
+        Import-SQLPSModule
+
         # Connect to the defined instance
         $serverObject = Connect-SQL -SQLServer $this.SQLServer -SQLInstanceName $this.SQLInstanceName
 
