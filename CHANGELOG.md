@@ -101,6 +101,8 @@
     Services has not been initialized ([issue #822](https://github.com/PowerShell/xSQLServer/issues/822)).
   - Fixed so that when two Reporting Services are installed for the same major
     version the resource does not throw an error ([issue #819](https://github.com/PowerShell/xSQLServer/issues/819)).
+- Changes to xSQLServerNetwork
+  - removed unused parameter from the example
 
 ## 8.1.0.0
 
@@ -169,6 +171,7 @@
     administrator (issue #691).
   - Added a simple integration test ([issue #709](https://github.com/PowerShell/xSQLServer/issues/709)).
   - Fixed PS Script Analyzer errors ([issue #729](https://github.com/PowerShell/xSQLServer/issues/729))
+  -
 
 ## 8.0.0.0
 
